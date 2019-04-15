@@ -17,13 +17,13 @@ You can upgrade the chaincode after deploying the network. Run the below script 
 
 UpgradeChaincode.sh
 
-You need to add new chaincode to the file at this location: artifacts/chaincode/chaincode_example02/chaincode_example02.js
+You need to add new chaincode to the file at this location: artifacts/chaincode/basic_chaincode/basic_chaincode.js
 Before you run the script, remember to set the new version of the chaincode in below two files 
 1. configFiles/UpgradeChaincode/NewChaincodeInstall.yaml  
 2. configFiles/UpgradeChaincode/ChaincodeUpgrade.yaml
 # Functions
 1. First, although the network is set up, you need to enter the bash shell of a peer with the command ($ kubectl exec -it [blockchain-org1peer1 pod name] bash). So for this network, the command would be ($ kubectl exec -it blockchain-org1peer1 bash). The command to exit the bash shell is simply ($ exit).
-2. The account data is present in GCPnetwork/artifacts/chaincode/chaincode_example02/account.json You can now load this data into the blockchain network using this command: peer chaincode invoke -n cc -C channel1 -c '{"Args":["InitLedger","account.json"]}'
+2. The account data is present in GCPnetwork/artifacts/chaincode/basic_chaincode/account.json You can now load this data into the blockchain network using this command: peer chaincode invoke -n cc -C channel1 -c '{"Args":["InitLedger","account.json"]}'
 3. To check the current account status and other account details, you can use this query command: peer chaincode query -C channel1 -n cc -c '{"Args":["queryAccount", "B608843779"]}'
 4. In order to update the account status, you can use this command: peer chaincode invoke -C channel1 -n cc -c '{"Args":["changeAccountStatus", "B608843779", "1"]}'
 # Important Notes

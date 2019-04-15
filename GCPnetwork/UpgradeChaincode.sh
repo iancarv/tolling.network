@@ -6,7 +6,7 @@ else
 fi
 
 pod=$(kubectl get pods -l name=org1peer1 --output=jsonpath={.items..metadata.name})
-kubectl cp artifacts/chaincode/chaincode_example02/chaincode_example02.js $pod:/public/artifacts/chaincode/chaincode_example02/ -c org1peer1
+kubectl cp artifacts/chaincode/basic_chaincode/basic_chaincode.js $pod:/public/artifacts/chaincode/basic_chaincode/ -c org1peer1
 echo "waiting 5 seconds to avoid network delay."
 sleep 5;
 
